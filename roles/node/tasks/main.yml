@@ -1,0 +1,36 @@
+#http://davidtsadler.com/archives/2012/05/06/installing-node-js-on-ubuntu/
+- name: Download node
+  git: repo=git://github.com/joyent/node.git dest=~/node_src version=v0.10.13
+  tags:
+    - node
+
+- name: Configure node
+  command: ./configure chdir=/home/vagrant/node_src/
+  sudo: true
+  tags:
+    - node
+
+- name: make node
+  command: make chdir=/home/vagrant/node_src/
+  sudo: true
+  tags:
+    - node
+
+- name: make install node
+  command: make install chdir=/home/vagrant/node_src/
+  sudo: true
+  tags:
+    - node
+
+- name: Install npm
+  shell: curl https://npmjs.org/install.sh | sh
+  sudo: true
+  tags:
+    - node
+
+- name: add repo to node repo list
+  command: npm config set registry http://registry.npmjs.org/
+  sudo: true
+  tags:
+    - node
+

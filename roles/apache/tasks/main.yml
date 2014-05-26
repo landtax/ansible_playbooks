@@ -1,0 +1,15 @@
+# Run the equivalent of "apt-get update" as a separate step
+- name: Install apache 
+  apt: name={{ item }} state=present
+  with_items:
+    - apache2
+    - libcurl4-openssl-dev
+    - apache2-prefork-dev
+    - libapr1-dev
+    - libaprutil1-dev
+
+- name: Enable some required modules
+  command: a2enmod proxy_balancer rewrite proxy_http
+
+- name: Restart apache
+  command: apache2ctl restart

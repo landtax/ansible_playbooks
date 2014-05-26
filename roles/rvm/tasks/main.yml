@@ -1,0 +1,23 @@
+- name: Install rvm
+  shell: curl -sSL https://get.rvm.io | bash -s stable creates=~/.rvm
+
+- name: Init rvm
+  shell: source ~/.rvm/scripts/rvm executable=/bin/bash
+
+- name: Install rvm requirements
+  apt: name={{ item }} state=present
+  with_items:
+    - gawk
+    - libreadline6-dev
+    - libyaml-dev
+    - sqlite3
+    - autoconf
+    - libgdbm-dev
+    - libncurses5-dev
+    - automake
+    - libtool
+    - bison
+    - libffi-dev
+  sudo: True
+
+

@@ -1,0 +1,8 @@
+- name: Install bind
+  apt: name={{ item }} state=present
+  sudo: True
+  with_items:
+    - bind9utils
+    - bind9
+  tags:
+    - bind

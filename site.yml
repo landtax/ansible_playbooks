@@ -1,0 +1,14 @@
+- hosts: all
+  sudo: True
+  vars_files:
+    - vars/users.yml
+  roles:
+    - essentials
+    - mysql
+
+- hosts: all
+  sudo: False
+  roles:
+    - ruby
+    - node
+

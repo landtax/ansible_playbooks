@@ -1,0 +1,5 @@
+---
+# as examples...
+username: vagrant
+user_password: $1$14064$AbresOQ1U5QFWhj1ve//S.
+mysql_password: root

@@ -1,0 +1,17 @@
+- name: Install postfix default config is enough for sending emails
+  shell: DEBIAN_FRONTEND=noninteractive apt-get -y install postfix
+  sudo: True
+  tags:
+    - postfix
+
+- name: Do not accept sending emails from outside
+  lineinfile: dest=/etc/postfix/main.cf regexp='^inet_interfaces = all' line='inet_interfaces = loopback-only'
+  sudo: True
+  tags:
+    - postfix
+
+- name: Restart postfix
+  command: /etc/init.d/postfix restart
+  sudo: True
+  tags:
+    - postfix
