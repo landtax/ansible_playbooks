@@ -5,6 +5,10 @@
   roles:
     - essentials
     - mysql
+    - memcached
+
+  handlers:
+    - include: handlers.yml
 
 - hosts: all
   sudo: False

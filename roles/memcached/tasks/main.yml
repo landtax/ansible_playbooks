@@ -13,7 +13,7 @@
     - unsafe
 
 - name: Configure memcached for development. Enable access from outside (2)
-  lineinfile: dest=/etc/mysql/my.cnf regexp="^-l 127.0.0.1" state=absent
+  lineinfile: dest=/etc/memcached.conf regexp="^-l 127.0.0.1" state=absent
   notify:
     - restart memcached
   tags:
