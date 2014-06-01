@@ -23,7 +23,7 @@
     - node
 
 - name: Install npm
-  shell: curl https://npmjs.org/install.sh | sh
+  shell: curl -O -L https://npmjs.org/install.sh | sh
   sudo: true
   tags:
     - node
