@@ -1,0 +1,8 @@
+---
+- name: Restart mysql
+  service: name=mysql start=restarted
+  sudo: true
+
+- name: Restart memcached
+  service: name=memcached start=restarted
+  sudo: true
