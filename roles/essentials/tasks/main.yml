@@ -16,6 +16,7 @@
     - build-essential
     - libxslt1-dev
     - libxml2-dev
+    - python-pycurl
     - curl
     - git-core
     - vim

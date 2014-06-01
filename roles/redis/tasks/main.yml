@@ -1,0 +1,16 @@
+
+- name: Add redis APT repo
+  apt_repository: repo='ppa:rwky/redis' state=present update_cache=yes
+  sudo: true
+  tags:
+    - redis
+
+
+- name: Install redis
+  apt: name={{ item }} state=present
+  with_items:
+    - python-software-properties
+    - redis-server
+  tags:
+    - redis
+

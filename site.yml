@@ -6,6 +6,7 @@
     - essentials
     - mysql
     - memcached
+    - redis
 
   handlers:
     - include: handlers.yml
